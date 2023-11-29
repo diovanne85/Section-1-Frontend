@@ -31,5 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
     progress.value = song.currentTime;
   });
 
+  progress.onchange = function () {
+    song.play();
+    song.currentTime = progress.value;
+    ctrlIcon.classList.add("fa-pause");
+    ctrlIcon.classList.remove("fa-play");
+  };
+
   ctrlIcon.addEventListener("click", playPause);
 });
